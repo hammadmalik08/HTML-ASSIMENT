@@ -1,483 +1,1045 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-    margin: 0%;
-    padding: 0%;
-}
 
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
+```
+<!-- Mobile Responsive -->
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-.friend-list{
-    width: 30%;
-    height: 100%;
-    /* background-color: blue; */
-}
+<title>Chat Application</title>
 
-.navbar{
-    width: 100%;
-    height: 10%;
-    
-    display: flex;
-}
+<!-- Font Awesome -->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    referrerpolicy="no-referrer">
 
-.menubar{
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+<style>
 
-.main-heading{
-    width: 60%;
-    display: flex;
-    font-size: 15px;
-    /* justify-content: center; */
-    align-items: center;
-}
-.friend-add{
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: green;
-}
+    /* =========================
+       GLOBAL CSS
+    ========================= */
 
-.user-contact{
-    width: 100%;
-    height: 90%;
-    /* background-color: chartreuse; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    overflow: auto;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.contact-box{
-    width: 95%;
-    height: 15%;
-    display: flex;
-    /* background-color: brown; */
-    border: 1px solid black;
-}
-
-.profile{
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: chocolate; */
-}
-
-.dp-1{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-
-.user-name{
-    width: 70%;
-    /* background-color: crimson; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-}
-
-.time{
-
-    width: 15%;
-    /* background-color: yellow; */
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    font-size: 12px;
-    font-family: arial;
-    font-weight: bolder;
-}
-
-.chat-box{
-    width: 70%;
-    height: 100%;
-    
-}
-.nev{
-    width: 100%;
-    height: 10%;
-    
-    display: flex;
-}
-.sidebox{
-    width: 70%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.middlebox{
-    width: 10%;
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-.leftside{
-    width: 10%;
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-.leftsidebox{
-    width: 10%;
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-.mean-chat{
-    width: 100%;
-    height: 80%;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    
-}
-.you{
-    width: 100%;
-    display: flex;
-}
-.profile1{
-
-    
-
-    display: flex;
-    align-items: center;
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        background-color: #f5f5f5;
+    }
 
 
-}
-.user-dp{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;    
-}
-.user-chat{
-    width: 90%;
-    
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 2px gray solid;
-}
-.user-chat-me{
-        width: 90%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding: 10px;
-    border: 2px gray solid;
-}
-.p{
-    font-size: 30px;
-    text-align: left;
-}
-.chat-bar{
-    width: 100%;
-    height: 10%;
-    display: flex;
-}
-.emoji{
-    width: 50px;
-    height: 50px;
-    
-    border-radius: 50px;
-    margin-top: 10px;
-}
-.emoji1{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-.message{
-    width: 90%;
-    height: 100%;
-    border: none;
-    outline: none;
-    display: flex;
-    align-items: center;
-}
-.cemara{
-    width: 10%;
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.me{
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    
-}
-.me-p{
-    font-size: 30px;
-    text-align: right;
-    
-}
-.profile2{
-    width: 15%;
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
 
-}
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    .container {
+        width: 100%;
+        height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        background-color: white;
+    }
+
+
+    /* =========================
+       FRIEND LIST
+    ========================= */
+
+    .friend-list {
+        width: 30%;
+        min-width: 280px;
+        height: 100%;
+        border-right: 1px solid #ddd;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* =========================
+       LEFT NAVBAR
+    ========================= */
+
+    .navbar {
+        width: 100%;
+        height: 70px;
+        min-height: 70px;
+        display: flex;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .menubar {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .main-heading {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .main-heading h1 {
+        font-size: 22px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .friend-add {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: green;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       CONTACT LIST
+    ========================= */
+
+    .user-contact {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        overflow-y: auto;
+        padding: 5px;
+    }
+
+    .contact-box {
+        width: 100%;
+        min-height: 75px;
+        display: flex;
+        border-bottom: 1px solid #e5e5e5;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 8px;
+    }
+
+    .contact-box:hover {
+        background-color: #f2f2f2;
+    }
+
+    .profile {
+        width: 70px;
+        min-width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dp-1 {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-name {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        min-width: 0;
+    }
+
+    .user-name h3 {
+        font-size: 16px;
+    }
+
+    .user-name p {
+        color: #666;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .time {
+        width: 70px;
+        min-width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+        font-weight: bold;
+        color: #666;
+    }
+
+
+    /* =========================
+       CHAT BOX
+    ========================= */
+
+    .chat-box {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        background-color: #fafafa;
+    }
+
+
+    /* =========================
+       CHAT HEADER
+    ========================= */
+
+    .nev {
+        width: 100%;
+        height: 70px;
+        min-height: 70px;
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        background-color: white;
+    }
+
+    .sidebox {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        min-width: 0;
+    }
+
+    .sidebox h1 {
+        font-size: 22px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .middlebox,
+    .leftside,
+    .leftsidebox {
+        width: 60px;
+        min-width: 60px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       CHAT AREA
+    ========================= */
+
+    .mean-chat {
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #f5f5f5;
+    }
+
+
+    /* =========================
+       OTHER USER MESSAGE
+    ========================= */
+
+    .you {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .profile1 {
+        width: 50px;
+        min-width: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .user-dp {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-chat {
+        max-width: 70%;
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        border-radius: 15px 15px 15px 3px;
+        background-color: white;
+        border: 1px solid #ddd;
+        word-break: break-word;
+    }
+
+    .p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================
+       MY MESSAGE
+    ========================= */
+
+    .me {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .user-chat-me {
+        max-width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 15px;
+        border-radius: 15px 15px 3px 15px;
+        background-color: #d9fdd3;
+        border: 1px solid #c8eec1;
+        word-break: break-word;
+    }
+
+    .me-p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: right;
+    }
+
+    .profile2 {
+        width: 50px;
+        min-width: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* =========================
+       CHAT INPUT BAR
+    ========================= */
+
+    .chat-bar {
+        width: 100%;
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        border-top: 1px solid #ddd;
+        background-color: white;
+    }
+
+    .emoji {
+        width: 45px;
+        min-width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .emoji1 {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .message-container {
+        flex: 1;
+        height: 45px;
+    }
+
+    .message-input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        outline: none;
+        padding: 0 18px;
+        font-size: 15px;
+    }
+
+    .message-input:focus {
+        border-color: #25d366;
+    }
+
+    .cemara {
+        width: 45px;
+        min-width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       TABLET RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+        .friend-list {
+            width: 35%;
+            min-width: 240px;
+        }
+
+        .user-chat,
+        .user-chat-me {
+            max-width: 75%;
+        }
+
+        .sidebox h1 {
+            font-size: 19px;
+        }
+
+    }
+
+
+    /* =========================
+       ANDROID + iOS MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .container {
+            flex-direction: column;
+            height: 100svh;
+        }
+
+
+        /* Friend list top */
+        .friend-list {
+            width: 100%;
+            height: 38%;
+            min-width: 0;
+            border-right: none;
+            border-bottom: 2px solid #ddd;
+        }
+
+
+        /* Chat box bottom */
+        .chat-box {
+            width: 100%;
+            height: 62%;
+            flex: none;
+        }
+
+
+        .navbar,
+        .nev {
+            height: 60px;
+            min-height: 60px;
+        }
+
+        .main-heading h1 {
+            font-size: 18px;
+        }
+
+        .sidebox {
+            padding-left: 10px;
+        }
+
+        .sidebox h1 {
+            font-size: 18px;
+        }
+
+
+        .middlebox,
+        .leftside,
+        .leftsidebox {
+            width: 45px;
+            min-width: 45px;
+            font-size: 16px;
+        }
+
+
+        .contact-box {
+            min-height: 65px;
+        }
+
+        .profile {
+            width: 60px;
+            min-width: 60px;
+        }
+
+        .dp-1 {
+            width: 42px;
+            height: 42px;
+        }
+
+        .time {
+            width: 55px;
+            min-width: 55px;
+            font-size: 9px;
+        }
+
+        .user-name h3 {
+            font-size: 14px;
+        }
+
+        .user-name p {
+            font-size: 11px;
+        }
+
+
+        .mean-chat {
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .profile1,
+        .profile2 {
+            width: 40px;
+            min-width: 40px;
+        }
+
+        .user-dp {
+            width: 35px;
+            height: 35px;
+        }
+
+        .user-chat,
+        .user-chat-me {
+            max-width: 78%;
+            padding: 9px 12px;
+        }
+
+        .p,
+        .me-p {
+            font-size: 14px;
+        }
+
+
+        .chat-bar {
+            min-height: 60px;
+            padding: 7px 10px;
+            gap: 5px;
+        }
+
+        .emoji {
+            width: 40px;
+            min-width: 40px;
+        }
+
+        .emoji1 {
+            width: 30px;
+            height: 30px;
+        }
+
+        .message-container {
+            height: 40px;
+        }
+
+        .cemara {
+            width: 40px;
+            min-width: 40px;
+            font-size: 18px;
+        }
+
+    }
+
+
+    /* =========================
+       SMALL ANDROID / iPHONE
+    ========================= */
+
+    @media (max-width: 400px) {
+
+        .friend-list {
+            height: 35%;
+        }
+
+        .chat-box {
+            height: 65%;
+        }
+
+        .main-heading h1 {
+            font-size: 16px;
+        }
+
+        .sidebox h1 {
+            font-size: 16px;
+        }
+
+        .middlebox,
+        .leftside,
+        .leftsidebox {
+            width: 38px;
+            min-width: 38px;
+            font-size: 14px;
+        }
+
+        .user-chat,
+        .user-chat-me {
+            max-width: 80%;
+        }
+
+    }
+
+</style>
+```
+
 </head>
 
 <body>
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="friend-list">
 
-            <div class="navbar">
-                <div class="menubar">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <div class="main-heading">
-                    <h1>Louie Barletta</h1>
-                </div>
-                <div class="friend-add">
-                    <i class="fa-solid fa-plus"></i>
-                </div>
+    <!-- =========================
+         FRIEND LIST
+    ========================= -->
+
+    <div class="friend-list">
+
+
+        <!-- LEFT NAVBAR -->
+
+        <div class="navbar">
+
+            <div class="menubar">
+                <i class="fa-solid fa-bars"></i>
             </div>
 
-            <div class="user-contact">
+            <div class="main-heading">
+                <h1>Louie Barletta</h1>
+            </div>
 
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse3.mm.bing.net/th/id/OIP.-s4DDIIHzLLtZTLKlvDpRwHaHa?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">Lucky Khan</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">this is my design</p>
-                    </div>
-                    <div class="time">
-                        <p>2:21 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse3.mm.bing.net/th/id/OIP.CnKBzZ39LU8WPh0iI_fjGwHaNL?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">amir</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">what s up bro</p>
-                    </div>
-                    <div class="time">
-                        <p>3:51 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.uIIsnMk2OlSzf95oBLfeFQHaJN?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">sameer</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">Hy bro whare are you</p>
-                    </div>
-                    <div class="time">
-                        <p>3:00 AM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse2.mm.bing.net/th/id/OIP.n4Fda8IGzQ6Bx4_YNHGv_gHaHU?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">Abdullah</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">jani whare are yoou</p>
-                    </div>
-                    <div class="time">
-                        <p>7:45 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">Sahil</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">kase ho bro</p>
-                    </div>
-                    <div class="time">
-                        <p> 4:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse4.mm.bing.net/th/id/OIP.v7d2Vh1AulOs6iVvDdH0JAHaJL?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">asad</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">Assalamua laikum</p>
-                    </div>
-                    <div class="time">
-                        <p>5:30 AM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse4.mm.bing.net/th/id/OIP.zrkHPiTxZjUX8SS1fJAr6AHaH4?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">Hamza</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">Bro give me a video</p>
-                    </div>
-                    <div class="time">
-                        <p>6:45 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="profile">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
-                            alt="image error" class="dp-1">
-                    </div>
-                    <div class="user-name">
-                        <h3 style="font-family: arial;">Hammad Malik</h3>
-                        <p style="font-family: arial;color: rgb(60, 59, 59);">This is my youtube channel</p>
-                    </div>
-                    <div class="time">
-                        <p>8:55 AM</p>
-                    </div>
-                </div>
-
-
-
+            <div class="friend-add">
+                <i class="fa-solid fa-plus"></i>
             </div>
 
         </div>
-        <div class="chat-box">
-            <div class="nev">
-                <div class="sidebox">
-                    <h1>Mark Appleyard</h1>
+
+
+        <!-- CONTACT LIST -->
+
+        <div class="user-contact">
+
+
+            <!-- CONTACT 1 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse3.mm.bing.net/th/id/OIP.-s4DDIIHzLLtZTLKlvDpRwHaHa?pid=Api&h=220&P=0"
+                        alt="Lucky Khan"
+                        class="dp-1">
                 </div>
-                <div class="middlebox">
-                    <i class="fa-solid fa-video"></i>
+
+                <div class="user-name">
+                    <h3>Lucky Khan</h3>
+                    <p>this is my design</p>
                 </div>
-                <div class="leftside">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                <div class="time">
+                    <p>2:21 PM</p>
                 </div>
-                <div class="leftsidebox">
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
+
             </div>
 
-            <div class="mean-chat">
 
-                <div class="you">
-                    <div class="profile1">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
-                            class="user-dp">
-                    </div>
-                    <div class="user-chat"><p class="p">Assalamu alaikum</p></div>
+            <!-- CONTACT 2 -->
 
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse3.mm.bing.net/th/id/OIP.CnKBzZ39LU8WPh0iI_fjGwHaNL?pid=Api&h=220&P=0"
+                        alt="Amir"
+                        class="dp-1">
                 </div>
 
-                <div class="me">
-                    <div class="user-chat-me"><p class="me-p">Walaikum salam</p></div>
-                    <div class="pprofile2">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
-                            class="user-dp">
-                        </div>
+                <div class="user-name">
+                    <h3>Amir</h3>
+                    <p>What's up bro</p>
                 </div>
 
-
-                <div class="you">
-                    <div class="profile1">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
-                            class="user-dp">
-                    </div>
-                    <div class="user-chat"><p class="p">Kase hoo bro</p></div>
-
+                <div class="time">
+                    <p>3:51 PM</p>
                 </div>
-
-                <div class="me">
-                    <div class="user-chat-me"><p class="me-p">thk bro app sunao kase ho</p></div>
-                    <div class="pprofile2">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
-                            class="user-dp">
-                        </div>
-                </div>
-
-
-                <div class="you">
-                    <div class="profile1">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
-                            class="user-dp">
-                    </div>
-                    <div class="user-chat"><p class="p">bs me b thk hu allah ka shukr h bro</p></div>
-
-                </div>
-
-                <div class="me">
-                    <div class="user-chat-me"><p class="me-p">Or kya chl raha he aj kl</p></div>
-                    <div class="pprofile2">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
-                            class="user-dp">
-                        </div>
-                </div>
-
 
             </div>
-            <div class="chat-bar">
 
-                <div class="emoji">
-                    <img src="https://tse2.mm.bing.net/th/id/OIP.cX1vkYnTD8yn9TpICvtAcgHaHa?pid=Api&h=220&P=0" class="emoji1">
+
+            <!-- CONTACT 3 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.uIIsnMk2OlSzf95oBLfeFQHaJN?pid=Api&h=220&P=0"
+                        alt="Sameer"
+                        class="dp-1">
                 </div>
 
-                <div class="message">
-                    <input type="text" placeholder="type a message" class="message">
+                <div class="user-name">
+                    <h3>Sameer</h3>
+                    <p>Hy bro where are you</p>
                 </div>
-                <div class="cemara">
-                    <i class="fa-regular fa-camera"></i>
+
+                <div class="time">
+                    <p>3:00 AM</p>
                 </div>
+
             </div>
+
+
+            <!-- CONTACT 4 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse2.mm.bing.net/th/id/OIP.n4Fda8IGzQ6Bx4_YNHGv_gHaHU?pid=Api&h=220&P=0"
+                        alt="Abdullah"
+                        class="dp-1">
+                </div>
+
+                <div class="user-name">
+                    <h3>Abdullah</h3>
+                    <p>Jani where are you</p>
+                </div>
+
+                <div class="time">
+                    <p>7:45 PM</p>
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT 5 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
+                        alt="Sahil"
+                        class="dp-1">
+                </div>
+
+                <div class="user-name">
+                    <h3>Sahil</h3>
+                    <p>Kaise ho bro</p>
+                </div>
+
+                <div class="time">
+                    <p>4:00 PM</p>
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT 6 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse4.mm.bing.net/th/id/OIP.v7d2Vh1AulOs6iVvDdH0JAHaJL?pid=Api&h=220&P=0"
+                        alt="Asad"
+                        class="dp-1">
+                </div>
+
+                <div class="user-name">
+                    <h3>Asad</h3>
+                    <p>Assalamualaikum</p>
+                </div>
+
+                <div class="time">
+                    <p>5:30 AM</p>
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT 7 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse4.mm.bing.net/th/id/OIP.zrkHPiTxZjUX8SS1fJAr6AHaH4?pid=Api&h=220&P=0"
+                        alt="Hamza"
+                        class="dp-1">
+                </div>
+
+                <div class="user-name">
+                    <h3>Hamza</h3>
+                    <p>Bro give me a video</p>
+                </div>
+
+                <div class="time">
+                    <p>6:45 PM</p>
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT 8 -->
+
+            <div class="contact-box">
+
+                <div class="profile">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
+                        alt="Hammad Malik"
+                        class="dp-1">
+                </div>
+
+                <div class="user-name">
+                    <h3>Hammad Malik</h3>
+                    <p>This is my YouTube channel</p>
+                </div>
+
+                <div class="time">
+                    <p>8:55 AM</p>
+                </div>
+
+            </div>
+
+
         </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         CHAT BOX
+    ========================= -->
+
+    <div class="chat-box">
+
+
+        <!-- CHAT HEADER -->
+
+        <div class="nev">
+
+            <div class="sidebox">
+                <h1>Mark Appleyard</h1>
+            </div>
+
+            <div class="middlebox">
+                <i class="fa-solid fa-video"></i>
+            </div>
+
+            <div class="leftside">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="leftsidebox">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MESSAGES
+        ========================= -->
+
+        <div class="mean-chat">
+
+
+            <!-- MESSAGE 1 -->
+
+            <div class="you">
+
+                <div class="profile1">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
+                        alt="User"
+                        class="user-dp">
+                </div>
+
+                <div class="user-chat">
+                    <p class="p">Assalamu alaikum</p>
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE 2 -->
+
+            <div class="me">
+
+                <div class="user-chat-me">
+                    <p class="me-p">Walaikum salam</p>
+                </div>
+
+                <div class="profile2">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
+                        alt="Me"
+                        class="user-dp">
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE 3 -->
+
+            <div class="you">
+
+                <div class="profile1">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
+                        alt="User"
+                        class="user-dp">
+                </div>
+
+                <div class="user-chat">
+                    <p class="p">Kaise ho bro?</p>
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE 4 -->
+
+            <div class="me">
+
+                <div class="user-chat-me">
+                    <p class="me-p">Theek bro, aap sunao kaise ho?</p>
+                </div>
+
+                <div class="profile2">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
+                        alt="Me"
+                        class="user-dp">
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE 5 -->
+
+            <div class="you">
+
+                <div class="profile1">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.fPKUlXI8XTxdAkh4laDtcgHaJQ?pid=Api&h=220&P=0"
+                        alt="User"
+                        class="user-dp">
+                </div>
+
+                <div class="user-chat">
+                    <p class="p">Bas main bhi theek hoon, Allah ka shukar hai bro.</p>
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE 6 -->
+
+            <div class="me">
+
+                <div class="user-chat-me">
+                    <p class="me-p">Aur kya chal raha hai aaj kal?</p>
+                </div>
+
+                <div class="profile2">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.YTv9uG7Oh6WEkw4iZDazQwHaHa?pid=Api&h=220&P=0"
+                        alt="Me"
+                        class="user-dp">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             CHAT INPUT
+        ========================= -->
+
+        <div class="chat-bar">
+
+
+            <div class="emoji">
+
+                <img
+                    src="https://tse2.mm.bing.net/th/id/OIP.cX1vkYnTD8yn9TpICvtAcgHaHa?pid=Api&h=220&P=0"
+                    alt="Emoji"
+                    class="emoji1">
+
+            </div>
+
+
+            <div class="message-container">
+
+                <input
+                    type="text"
+                    placeholder="Type a message..."
+                    class="message-input">
+
+            </div>
+
+
+            <div class="cemara">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+```
 
 </body>
 
